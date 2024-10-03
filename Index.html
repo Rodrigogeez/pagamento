@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento de Guias Vocais</title>
+  <style>
+    /* Estilos gerais */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000000;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Container principal */
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #739EB0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Título */
+    h1 {
+      text-align: center;
+      color: #000;
+    }
+
+    /* Tabelas */
+    .payment-section {
+      margin-bottom: 30px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    /* Estilos da Imagem */
+    .payment-section img {
+      display: block;
+      max-width: 140px; /* Ajuste o tamanho máximo da imagem */
+      margin: 20px auto; /* Centraliza horizontalmente */
+      border: 2px solid #ddd; /* Borda para destacar */
+      border-radius: 8px; /* Bordas arredondadas */
+    }
+
+    /* Chave Pix */
+    .pix-key {
+      font-weight: bold;
+      font-size: 18px;
+      margin: 10px auto;
+      display: inline-block;
+      padding: 10px;
+      border: 1px solid #0073e6;
+      border-radius: 5px;
+      background-color: #e6f0ff;
+      word-wrap: break-word; /* Quebra de linha automática */
+      max-width: 90%; /* Ajusta para caber dentro do layout */
+      white-space: pre-wrap; /* Quebra de linha para evitar overflow */
+    }
+
+    /* Botões */
+    .btn {
+      padding: 12px 20px;
+      font-size: 16px;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn-primary {
+      background-color: #0073e6;
+    }
+
+    .btn-primary:hover {
+      background-color: #005bb5;
+    }
+
+    .btn-success {
+      background-color: #28a745;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+    }
+
+    .copy-success {
+      display: none;
+      color: #28a745;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+
+  <script>
+    function copyPixKey() {
+      var pixKey = document.getElementById("pixKey");
+      var range = document.createRange();
+      range.selectNode(pixKey);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+
+      try {
+        document.execCommand("copy");
+        document.getElementById("copySuccess").style.display = "block";
+      } catch (err) {
+        alert("Erro ao copiar a chave Pix.");
+      }
+
+      window.getSelection().removeAllRanges();
+    }
+
+    function goToCheckout() {
+      // Redireciona para o link de pagamento no Mercado Pago
+      window.location.href = "https://www.mercadopago.com.br/checkout/v1/redirect?preference-id=SUA_ID_DE_CHECKOUT_AQUI";
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Pagamento de Guias Vocais</h1>
+
+    <!-- Seção de Pagamento via Pix -->
+    <div class="payment-section">
+      <h2>Pagamento via Pix</h2>
+<h3>Escaneie o QRCODE para pagamento</h3>
+ <img src="https://i.ibb.co/kSFRdtQ/QRCODE.jpg" alt="QRCODE" border="0" alt="Pagamento Pix">
+      <p>Copie a chave Pix abaixo para realizar o pagamento:</p>
+      <div id="pixKey" class="pix-key">00020101021126750014br.gov.bcb.pix0114+55119489914300235GUIA PROMOCAO DA NOITE E MADRUGADA 520400005303986540547.905802BR5925GEEZ MUSIC STUDIO PRODUTO6009SAO PAULO622905251J97N971P119TBWVBCT7TWH8K63047D29</div>
+      <button class="btn btn-success" onclick="copyPixKey()">Copiar Chave Pix</button>
+      <p id="copySuccess" class="copy-success">Chave Pix copiada com sucesso!</p>
+      <!-- Imagem Pix -->
+      <img src="C:\Users\Geez Music\Desktop\CHEKOUT\PIX.PNG" alt="Pagamento Pix">
+    </div>
+
+    <!-- Seção de Pagamento via Cartão (Mercado Pago) -->
+    <div class="payment-section">
+      <h2>Pagamento com Cartão de Crédito</h2>
+      <p>Pague com cartão de crédito usando o Mercado Pago:</p>
+      <!-- Botão para redirecionar ao Checkout -->
+      <button class="btn btn-primary" onclick="goToCheckout()">Pagar com Cartão</button>
+      <!-- Imagem Cartão -->
+      <img src="https://th.bing.com/th/id/OIP.ySKkRxgwNqrAT_UZ4GD2dQHaHa?w=500&h=500&rs=1&pid=ImgDetMain" alt="Cartão de Crédito">
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 - Guias Vocais para Compositores. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
